@@ -1,6 +1,6 @@
 # 前端  
 
->  ~~第一阶段：学习HTML，学习网站为https://www.runoob.com/html/html-tutorial.html  ~~  
+>  ~~ 第一阶段：学习HTML，学习网站为https://www.runoob.com/html/html-tutorial.html ~~  
   第二阶段：学习CSS，学习网站为https://www.runoob.com/css/css-tutorial.html  
   第三阶段：学习JavaScript ，学习网站为https://www.runoob.com/js/js-tutorial.html  
   第四阶段：学习jQuery，学习网站为https://www.runoob.com/jquery/jquery-tutorial.html  
