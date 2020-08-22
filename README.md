@@ -12,3 +12,4 @@
 ### [HTML速查列表](https://www.runoob.com/html/html-quicklist.html)  
 ### [HTML全局事件](https://www.runoob.com/tags/ref-eventattributes.html)  
 ### [CSS3动画](https://www.runoob.com/css3/css3-animations.html)  
+### [jQuery动画](https://www.runoob.com/jquery/jquery-animate.html)  
