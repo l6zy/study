@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>校园网注册</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script>
+        function checkStrength()
+        {
+            var strength = document.getElementById("strength");
+            var psw1 = document.getElementById("psw1").value;
+            var length = psw1.length;
+            if (length >=1 && length<3)
+            {
+                strength.innerHTML = "弱";
+            }
+            else if (length >= 3 && length < 6)
+            {
+                strength.innerHTML = "中";
+            }
+            else
+            {
+                strength.innerHTML = "强";
+            }
+        }
+
+        function checkPSW()
+        {
+            var psw1 = document.getElementById("psw1").value;
+            var psw2 = document.getElementById("psw2").value;
+            var pswInfo = document.getElementById("pswInfo");
+            if (psw1 != psw2)
+            {
+                pswInfo.innerHTML = '两次输入的密码必须一致';
+            }
+        }
+
+        function reg()
+        {
+            var username = document.getElementById("username").value;
+            var sid = document.getElementById("sid").value;
+
+            if (document.getElementById("username").checkValidity() && document.getElementById("psw1").checkValidity() && document.getElementById("psw2").checkValidity()&&document.getElementById("sid").checkValidity())
+            {
+                alert('确认注册信息\n' + '用户名：' + username +'\n学号：' + sid + '\n')
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>校园网注册界面</legend>
+        <center>
+        <div style = "padding:5px;width:600px">
+            <h3>注册信息</h3>
+            <table width='100%'>
+                <tr>
+                    <td width='20%'>用户名</td>
+                    <td width='40%'><input id="username" type="text" required="true"/></td>
+                    <td width='40%'><font color="red">*</font></td>
+                </tr>
+                <tr>
+                    <td>学号</td>
+                    <td><input id="sid" type="number" required="true"/></td>
+                    <td><font color="red">*</font></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input id="psw1" type="password" required="true" onkeyup="checkStrength()"/></td>
+                    <td><font color="red">*</font> <span id="strength"></span></td>
+                </tr>
+                <tr>
+                    <td>确认密码</td>
+                    <td><input id="psw2" type="password" required="true" onblur="checkPSW()"/></td>
+                    <td><font color="red">*</font><span id="pswInfo"></span></td>
+                </tr>
+            </table>
+        </div>
+        
+        <input type="submit" value="注册" onclick="reg()"/>
+        <input type="reset" value="重置" />
+        </center>
+    </fieldset>
+</body>
+</html>
