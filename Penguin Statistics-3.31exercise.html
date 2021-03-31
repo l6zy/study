@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Statistics</title>
+    <style>
+        ::selection { background:rgb(201, 223, 252);color: #000; }
+        body {
+            background-color: silver;
+            margin: 0;
+        }
+
+        .pinfo {
+            font-size: medium;
+            padding: 0px;
+        }
+        .side {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 280px;
+            background-color: #f1f1f1;
+            position: fixed;
+            overflow: auto;
+            box-shadow:0px 5px 10px rgba(0, 0, 0, .5);
+        }
+
+        .topnav {
+            list-style-type: none;
+            margin: 0 0 0 285px;
+            padding: 0;
+
+            background-color: rgb(0, 97, 194);
+            display: inline-block;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            
+            box-shadow:0px 3px 8px rgba(0, 0, 0, .3);
+        }
+        .topnav li {
+            float: left;
+            left: 0;
+        }
+        .topnav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            
+        }
+
+        .sidenav {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0;
+            width: 280px;
+            background-color: #fafafa;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+
+        }
+
+        .sidenav li a {
+            display: block;
+            color: #000;
+            padding: 11px 11px 11px 50px;
+            text-decoration: none;
+            margin: 5px;
+            font-size: 14px;
+            
+        }
+
+        .sidenav li a.active {
+            background-color: rgba(128, 128, 128, .2);
+            color: #000;
+            border-radius: 3px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .sidenav li a:hover:not(.active) {
+            background-color:rgba(128, 128, 128, .1);
+            color: #000;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        div.content {
+            background-color: #FFFFFF;
+            margin-left: 285px;
+            padding: 61px 16px;
+            height: 1000px;
+            box-shadow:0px 0px 10px rgba(0, 0, 0, .5);
+        }
+
+        div.detail {
+            background-color: rgba(255,255,255,0.6);
+            border-radius: 3px;
+            padding: 1px 16px;
+            height: 300px;
+            box-shadow:0px 5px 6px rgba(0, 0, 0, .3);
+        }
+
+
+        div.detail2 {
+            background-color: #EEEEEE;
+            text-align:center;
+            font-size: 24px;
+            float: left;
+            padding: 1px 16px;
+            margin: 0px 1.5% 20px 1.5%;
+            height: 150px;
+            width: 40%;
+
+            box-shadow:0px 2px 5px rgba(0, 0, 0, .3);
+        }
+        div.detail2 p {
+            padding-top: 50px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: -80px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        .side_search_btn{
+            border-radius: 5px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, .4);
+            background-color: #FFFFFF;
+            color: #000;
+            padding: 11px 11px 11px 50px;
+            text-decoration: none;
+            margin: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .side_logo{
+            background-color: rgb(0, 97, 194);
+            height: 280px;
+            text-align: center;
+        }
+
+        .title{
+            margin: 0;
+            padding: 0;
+            color: #FFFFFF; 
+            top: 100px;
+        }
+
+        div.search_title{
+            border-radius: 30px;
+            box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+            width: 80%;
+            height: 60px;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            cursor: text;
+        }
+
+        div.search_title:hover{
+            border-radius: 30px;
+            border-width: 2px;
+            width: 80%;
+            height: 60px;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+        }
+
+
+        div.search_title input{
+            vertical-align: middle;
+            border: none;
+            width: 80%;
+            margin-left: 50px;
+            outline:medium;
+            font-size: medium;
+        }
+        @media screen and (max-width: 900px) {
+            ul.sidenav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            ul.sidenav li a {
+                float: left;
+                padding: 15px;
+            }
+
+            div.content {
+                margin-left: 50;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            ul.sidenav li a {
+                text-align: center;
+                float: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="side">
+        <div class="side_logo">
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <h3 class="title">企鹅物流数据统计</h2>
+        </div>
+        <div class="side_search_btn">搜索</div>
+        <ul class="sidenav">
+            <li><a class="active" href="#home">首页</a></li>
+            <li><a href="">掉落汇报</a></li>
+            <li><a href="">素材掉率</a></li>
+            <li><a href="">按作战</a></li>
+            <li><a href="">按素材</a></li>
+            <li><a href="">刷图规划器</a></li>
+            <li><a href="">高级查询</a></li>
+            <li><a href="">全站数据一览</a></li>
+        </ul>
+    </div>
+
+    <ul class="topnav">
+        <li><a style="cursor: pointer;">〓</a></li>
+        <li><a href="#home">首页</a></li>
+        
+        <li class="dropdown" style="float: right;margin-right:285px;background-color: rgb(61, 61, 61);"><a href="#about">国服</a>
+            <div class="dropdown-content">
+                <a style="color: #000;background-color: #DDD;">国服</a>
+                <a style="color: #000;" href="#">美服</a>
+                <a style="color: #000;" href="#">日服</a>
+                <a style="color: #000;" href="#">韩服</a>
+            </div>
+        </li>
+        
+    </ul>
+    
+    <div class="content">
+        <h1>欢迎来到企鹅物流数据统计！</h1>
+        <p class="pinfo">企鹅物流数据统计（Penguin Statistics）是企鹅物流旗下数据处理部门（误），致力于明日方舟各素材的掉率统计。</p>
+        <p class="pinfo">目前绝大部分数据由玩家手动汇报，为了尽量减少谎报、误报对结果的影响，企鹅数据团队会对掉落进行多方位的审查。</p>
+        <div class="detail" style="height: 200px;text-align: center;">
+            <p style="font-size:x-large;">全局搜索</p>
+            <div style="display: flex;justify-content: center;align-items: center;">
+                <div class="search_title">
+                    <input autocomplete="off" tabindex="1" placeholder="搜索..." type="text">
+                </div>
+            </div>
+            <p style="color: #888;font-size: small;">键入 物品全拼 拼音首字母 作战名 章节名 关卡编号 或 部分关卡/物品昵称</p>
+        </div>
+        <br>
+        <div class="detail" style="height: 480px;">
+            <h3>快速上手</h3>
+            <p>点击左上角按钮展开菜单</p>
+
+            <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+     
+                    <div class="detail2"><p><b>掉落汇报</b></p></div>
+                    <div class="detail2"><p><b>刷图规划</b></p></div>
+
+                    <div class="detail2"><p><b>素材掉率</b></p></div>
+                    <div class="detail2"><p><b>关卡掉率</b></p></div>
+
+                
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
