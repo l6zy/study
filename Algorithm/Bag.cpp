@@ -46,7 +46,7 @@ int DPBag(int weight[],int value[],int c,int n)
 			maxValue[i][j] = (topValue > thisValue ? topValue : thisValue);
 
 			// 打印矩阵
-			print(maxValue, n, c);
+			// print(maxValue, n, c);
 
 		}   // end inner for
 	}   // end outer for
@@ -63,6 +63,91 @@ int DPBag(int weight[],int value[],int c,int n)
 	return max;
 }
 
+int TXBag(int w[],int v[],int c,int n)
+{
+	double *r = new double[n+1];
+	int *index = new int[n+1];
+
+	// 记录v[i]/w[i] 的值
+	for (int i = 0; i <= n; i++) {
+		r[i] = (double)v[i] / (double)w[i];
+		index[i] = i;
+	}
+
+	double temp = 0;
+
+	// 降序排列
+	for (int i = 1; i < n ; i++) {
+		for (int j = i + 1; j <= n; j++) {
+			if (r[i] < r[j]) {
+				temp = r[i];
+				r[i] = r[j];
+				r[j] = temp;
+				// 交换i，j的下标
+				int x = index[i];
+				index[i] = index[j];
+				index[j] = x;
+			}
+		}
+	}
+
+	int maxValue = 0;
+	// 对比率r排序后对应的新数组
+	int *w1 = new int[n+1];
+	int *v1 = new int[n+1];
+	for (int i = 1; i <= n; i++) {
+		w1[i] = w[index[i]];
+		v1[i] = v[index[i]];
+	}
+
+	// 解向量x
+	int *x = new int[n+1];
+	for (int i = 0; i <= n; i++) {
+		x[i] = 0;
+	}
+
+	// 贪心算法
+	for (int i = 1; i <= n; i++) {
+		if (w1[i] < c) {
+			x[i] = 1;
+			c = c - w1[i];
+			maxValue += v1[i];
+		}
+		else {
+			x[i] = c / w[index[i]];
+			maxValue += x[i] * v[index[i]];
+		}
+	}
+
+	// 打印
+	cout << "已放进物品重量为：";
+	for (int i = 0; i < n; i++)
+	{
+		if (x[i] == 1)
+		{
+			cout << w1[i] << " ";
+		}
+	}
+	cout << endl;
+	cout << "已放进物品价值为：";
+	for (int i = 0; i < n; i++)
+	{
+		if (x[i] == 1)
+		{
+			cout << v1[i] << " ";
+		}
+	}
+	cout << endl;
+	cout << "所有物品比率为：";
+	for (int i = 1; i <= n; i++)
+	{
+		cout << r[i] << " ";
+	}
+	cout << endl;
+	cout << "最大价值为：" << maxValue << endl;
+	cout << endl;
+	return 0;
+}
 
 int main()
 {
@@ -70,6 +155,9 @@ int main()
 	int weight[] = { 0, 2, 2, 6, 5, 4 };
 	int c = 10;
 	int n = 5;
+	cout << "贪心算法：" << endl;
+	TXBag(weight, value, c, n);
+	cout << "动态规划：" << endl;
 	int temp = DPBag(weight, value, c, n);
 	cout << "最大价值为：" << temp;
 
