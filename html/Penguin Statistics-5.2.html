@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Penguin Statistics</title>
+
+		<style>
+
+    </style>
+
+		<script>
+			window.onload = function() {
+            var d = document.getElementById("dt");
+            d.onclick = function() {
+                document.getElementById("di").focus();
+            }
+        }
+    </script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.0.45/css/materialdesignicons.min.css">
+	</head>
+
+	<body class="innerbox">
+		<div class="bgimg"></div>
+		<main>
+
+			<nav class="list_nav" data-booted="true" style="height: 100vh; top: 0px; transform: translateX(0%); width: 300px;">
+				<div class="list_nav_content innerbox">
+					<div class="drawer-logo">
+						<div class="nav-image" style="height: 128px;">
+							<div class="responsive_sizer" style="padding-bottom: 100%;"></div>
+							<div class="v-image" style="background-image: url(download.webp); background-position: center center;">
+							</div>
+						</div>
+						<div class="description">
+							<div class="row" style="justify-content:center;align-items:center;"><span>企鹅物流数据统计</span><span></span>
+							</div>
+						</div>
+					</div>
+					<div class="list_sheet">
+						<a href="/search" class="card_search" tabindex="0">
+							<div class="title"><i aria-hidden="true" class="icon mdi mdi-magnify" style="margin-right: 32px!important;"></i>
+								<div class="flex-grow-1"><span class="search-text"> 全局搜索 </span></div><i aria-hidden="true"
+								 class="icon ml-2 mdi mdi-chevron-right" style="display: none;"></i>
+							</div>
+						</a>
+						<div tabindex="0" class="list_item">
+							<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-home"></i></div>
+							<div class="list_item_content">
+								<div class="list_item_title"> 首页
+									<!---->
+								</div>
+								<!---->
+							</div>
+						</div>
+						<div class="list_group">
+							<div tabindex="0" aria-expanded="true" role="button" class="list_group_header list-item">
+								<div class="list_item_icon list_group_header_prepend-icon"><i aria-hidden="true" class="icon mdi mdi-upload"></i></div>
+								<div class="list_item_title">掉落汇报</div>
+								<div class="list_item_icon list_group_header_append-icon"><i aria-hidden="true" class="icon mdi mdi-chevron-down"></i></div>
+							</div>
+							<div class="list_group_items">
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 按章节
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-cursor-default-click"></i></div>
+								</div>
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 截图识别
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-image-filter-center-focus"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="list_group">
+							<div tabindex="0" aria-expanded="true" role="button" class="list_group_header list_item">
+								<div class="list_item_icon list_group_header_prepend-icon"><i aria-hidden="true" class="icon mdi mdi-chart-pie"></i></div>
+								<div class="list_item_title">素材掉率</div>
+								<div class="list_item_icon list_group_header_append-icon"><i aria-hidden="true" class="icon mdi mdi-chevron-down"></i></div>
+							</div>
+							<div class="list_group_items">
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 按作战
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-cube"></i></div>
+								</div>
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 按素材
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-treasure-chest"></i></div>
+								</div>
+							</div>
+						</div>
+						<div tabindex="0" class="list_item list_item_twoline">
+							<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-directions-fork"></i></div>
+							<div class="list_item_content">
+								<div class="list_item_title"> 刷图规划器
+								</div>
+								<div class="list_item_subtitle overline"> ArkPlanner </div>
+							</div>
+						</div>
+						<div tabindex="0" class="list_item">
+							<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-database-search"></i></div>
+							<div class="list_item_content">
+								<div class="list_item_title"> 高级查询
+									<!---->
+								</div>
+								<!---->
+							</div>
+						</div>
+						<div tabindex="0" class="list_item">
+							<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-poll-box "></i></div>
+							<div class="list_item_content">
+								<div class="list_item_title"> 全站数据一览
+									<!---->
+								</div>
+								<!---->
+							</div>
+						</div>
+						<div class="list_group">
+							<div tabindex="0" aria-expanded="true" role="button" class="list_group_header list_item">
+								<div class="list_item_icon list_group_header_prepend-icon"><i aria-hidden="true" class="icon  mdi mdi-account-group"></i></div>
+								<div class="list_item_title">关于本站</div>
+								<div class="list_item_icon list_group_header_append-icon"><i aria-hidden="true" class="icon mdi mdi-chevron-down"></i></div>
+							</div>
+							<div class="list_group_items">
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 团队成员
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon mdi mdi-account-multiple"></i></div>
+								</div>
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 更新记录
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon notranslate mdi mdi-timeline"></i></div>
+								</div>
+								<div tabindex="0" class="list_item ">
+									<div class="list_item_title"> 友情链接
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon notranslate mdi mdi-link-variant"></i></div>
+								</div>
+								<div tabindex="0" class="list_item">
+									<div class="list_item_title"> 内容来源
+										<!---->
+									</div>
+									<div class="list_item_icon"><i aria-hidden="true" class="icon notranslate mdi mdi-license"></i></div>
+								</div>
+							</div>
+						</div>
+						<hr role="separator" aria-orientation="horizontal" class="divider">
+						<div class="container" style="margin-bottom: 120px;">
+							<div class="row justify-space-around"><button type="button" class="flex-grow-1 btn btn_depressed btn_flat btn_outlined btn_text" style="margin-right: 4px !important;"><span
+									 class="btn_content"><i aria-hidden="true" class="icon icon_left mdi mdi-database-refresh"></i>
+										刷新数据 </span></button>
+								<div role="dialog" class="dialog_container">
+									<!---->
+								</div><button type="button" class="flex-grow-1 btn btn_depressed btn_flat btn_outlined btn_text"
+								 role="button" aria-haspopup="true" aria-expanded="false"><span class="btn_content"><i aria-hidden="true"
+										 class="icon icon_left mdi mdi-settings"></i> 设置
+									</span></button>
+							</div>
+							<div class="row mt-2 justify-center">
+								<!---->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="v-navigation-drawer__border"></div>
+			</nav>
+
+
+			<div class="content">
+
+				<h1 style="margin-bottom: 16px;">欢迎来到企鹅物流数据统计！</h1>
+				<p class="pinfo">企鹅物流数据统计（Penguin Statistics）是企鹅物流旗下数据处理部门（误），致力于明日方舟各素材的掉率统计。</p>
+				<p class="pinfo" style="margin-bottom: 16px;">目前绝大部分数据由玩家手动汇报，为了尽量减少谎报、误报对结果的影响，企鹅数据团队会对掉落进行多方位的审查。</p>
+				<div class="detail pa-6" style="display:flex;justify-content: center;align-items: center;">
+                    <div style="text-align: center;width:100%;">
+                        <h1 style="font-size: 24px;font-weight: 400;margin-bottom: 16px!important;"><i class="mdi mdi-magnify" style="margin-right: 8px;"></i>全局搜索</h1>
+                        <div class="search">
+                            <div class="search_title" id="dt">
+                                <i class="mdi mdi-magnify" style="margin-right: 8px;font-size: 24px;padding-right: 4px;color: #666;"></i>
+                                <input autocomplete="off" tabindex="1" placeholder="搜索..." type="text" id="di">
+                            </div>
+                        </div>
+                        <p style="color: #888;font-size: small;margin-bottom: 8px;">键入 物品全拼 拼音首字母 作战名 章节名 关卡编号 或 部分关卡/物品昵称</p>
+                    </div>
+				</div>
+				<br>
+				<div class="detail pa-6">
+					<h1 style="font-size: 24px;font-weight: 400;"><i class="mdi mdi-speedometer" style="margin-right: 8px;color: #666;"></i>快速上手</h1>
+					<p style="margin-top: 8px!important;margin-bottom: 8px!important;">点击左上角按钮展开菜单</p>
+
+					<div class="quick">
+
+						<div class="detail2">
+
+							<i class="mdi mdi-upload" style="font-size: 40px;opacity: 0.9;color: #666;"></i>
+							<h2 style="font-size: 24px;margin: 4px 0px 4px 0px;">掉落汇报</h2>
+							<span class="sp">"我要汇报掉率"</span>
+						</div>
+						<div class="detail2">
+
+							<i class="mdi mdi-directions-fork" style="font-size: 40px;opacity: 0.9;color: #666;"></i>
+							<h2 style="font-size: 24px;margin: 4px 0px 4px 0px;">刷图规划</h2>
+							<span class="sp">"请给我刷图建议"</span>
+						</div>
+
+						<div class="detail2">
+
+							<i class="mdi mdi-treasure-chest" style="font-size: 40px;opacity: 0.9;color: #666;"></i>
+							<h2 style="font-size: 24px;margin: 4px 0px 4px 0px;">素材掉率</h2>
+							<span class="sp">"我该去哪刷石头?"</span>
+						</div>
+						<div class="detail2">
+							<i class="mdi mdi-cube" style="font-size: 40px;opacity: 0.9;color: #666;"></i>
+							<h2 style="font-size: 24px;margin: 4px 0px 4px 0px;">关卡掉率</h2>
+							<span class="sp">"这图掉率如何?"</span>
+						</div>
+
+
+					</div>
+
+				</div>
+				<br>
+				<div class="detail pa-6">
+					<p style="font-size:x-large;">许可协议</p>
+					<p style="font-size: 16px;">素材掉落统计数据由企鹅物流统计，采用知识共享 署名-非商业性使用 4.0 国际
+						许可协议进行许可。转载、公开或以任何形式复制、发行、再传播本站任何内容时，必须注明从企鹅物流数据统计转载，并提供版权标识、许可协议标识、免责标识和作品链接；且未经许可，不得将本站内容或由其衍生作品用于商业目的。
+					</p>
+				</div>
+			</div>
+
+            <ul class="topnav">
+                <li><a style="cursor: pointer;width: 48px;"><i class="mdi mdi-menu" style="font-size:24px;"></i></a></li>
+                <li><a href="#home" style="width: 48px;">首页</a></li>
+
+                <li class="dropdown" style="float: right;margin-right:316px;background-color: rgb(61, 61, 61);width:80px;">
+                    <a href="#about">国服</a>
+                    <div class="dropdown-content">
+                        <a style="color: #000;background-color: #DDD;">国服</a>
+                        <a style="color: #000;" href="#">美服</a>
+                        <a style="color: #000;" href="#">日服</a>
+                        <a style="color: #000;" href="#">韩服</a>
+
+                    </div>
+                </li>
+
+            </ul>
+		</main>
+	</body>
+
+</html>
